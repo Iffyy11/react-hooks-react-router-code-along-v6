@@ -1,28 +1,13 @@
-import { useState, useEffect } from "react";
-import UserCard from "../components/UserCard";
+import React from "react";
+import NavBar from ".. /components/NavBar";
 
-function Home() {
-  const [users, setUsers] = useState([])
-
-  useEffect(() =>{
-    fetch("http://localhost:4000/users")
-      .then(r => r.json())
-      .then(data => setUsers(data))
-      .catch(error => console.error(error));
-  }, []);
-  
-  const userList = users.map(user =>{
-    return <UserCard key={user.id} user={user}/>
-  });
-
+const Home = () => {
   return (
     <>
-      <header>
-        {/* place NavBar here */}
-      </header>
+      <header><NavBar /></header>
       <main>
-        <h1>Home!</h1>
-        {userList}
+        <h1>Welcome to the React Router App</h1>
+        <p>This is the home page. Use the navigation bar to explore.</p>
       </main>
     </>
   );
